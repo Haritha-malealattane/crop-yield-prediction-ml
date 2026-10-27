@@ -1,0 +1,30 @@
+{% extends "users/base.html" %}
+{% block title %}Home | Crop Yield Prediction{% endblock %}
+{% block content %}
+<div class="hero p-4 p-md-5 mb-4">
+  <h1 class="fw-bold">Welcome{% if user.is_authenticated %}, {{ user.first_name|default:user.username }}{% endif %}</h1>
+  <p class="lead mb-0">Machine-learning tools that help with two questions: <strong>which crop suits my soil and weather?</strong> and <strong>how much yield can I expect?</strong></p>
+</div>
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card card-soft h-100 p-4">
+      <h3>Crop Prediction</h3>
+      <p>Enter soil nutrients (N, P, K), temperature, humidity, pH and rainfall. The model recommends one of 22 crops.</p>
+      <div class="mt-auto d-flex gap-2">
+        <a class="btn btn-green" href="{% url 'Deploy_8' %}">Predict a crop</a>
+        <a class="btn btn-outline-success" href="{% url 'Basic_report' %}">Crop model analysis</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card card-soft h-100 p-4">
+      <h3>Yield Model</h3>
+      <p>Yield is the amount of produce harvested per unit of land. Enter crop, season, area and production details to estimate it.</p>
+      <div class="mt-auto d-flex gap-2">
+        <a class="btn btn-green" href="{% url 'Deploy_9' %}">Predict yield</a>
+        <a class="btn btn-outline-success" href="{% url 'Yield_report' %}">Yield model analysis</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

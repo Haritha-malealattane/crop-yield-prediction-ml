@@ -1,0 +1,28 @@
+{% extends "users/base.html" %}
+{% block title %}Login | Crop Yield Prediction{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card card-soft p-4">
+      <h3 class="mb-3">Log in</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">{{ form.username }}{{ form.username.errors }}</div>
+        <div class="mb-3">{{ form.password }}{{ form.password.errors }}</div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" name="remember_me" id="remember_me">
+          <label class="form-check-label" for="remember_me">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-green w-100">Log in</button>
+      </form>
+      <hr>
+      <div class="d-grid gap-2">
+        <a class="btn btn-outline-dark" href="{% url 'social:begin' 'github' %}">Continue with GitHub</a>
+        <a class="btn btn-outline-danger" href="{% url 'social:begin' 'google-oauth2' %}">Continue with Google</a>
+      </div>
+      <p class="mt-3 mb-0">New here? <a href="{% url 'users-register' %}">Create an account</a></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

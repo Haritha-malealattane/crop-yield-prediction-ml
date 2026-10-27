@@ -1,0 +1,29 @@
+{% extends "users/base.html" %}
+{% block title %}Yield Prediction{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card card-soft p-4">
+      <h3 class="mb-1">Predict Yield</h3>
+      <p class="text-muted">Enter crop, season, area and production details.</p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3"><label for="crop">Crop</label>
+          <input type="number" step="any" name="crop" id="crop" required></div>
+        <div class="mb-3"><label for="season">Season</label>
+          <input type="number" step="any" name="season" id="season" required></div>
+        <div class="mb-3"><label for="area">Area</label>
+          <input type="number" step="any" name="area" id="area" required></div>
+        <div class="mb-3"><label for="area_units">Area units</label>
+          <input type="number" step="any" name="area_units" id="area_units" required></div>
+        <div class="mb-3"><label for="production">Production</label>
+          <input type="number" step="any" name="production" id="production" required></div>
+        <div class="mb-3"><label for="production_units">Production units</label>
+          <input type="number" step="any" name="production_units" id="production_units" required></div>
+        <button type="submit" class="btn btn-green w-100">Predict</button>
+      </form>
+      <p class="helptext mt-3 mb-0">Crop, season and the two unit fields are entered as the numeric codes the yield model was trained with.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

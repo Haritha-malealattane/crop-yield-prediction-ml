@@ -1,0 +1,18 @@
+{% extends "users/base.html" %}
+{% block title %}Yield Report{% endblock %}
+{% block content %}
+<div class="card card-soft p-4">
+  <h3>Yield Model Analysis</h3>
+  <p>Yield is the amount of agricultural product harvested per unit of land, and it is a key measure of farm productivity and profitability.</p>
+  <h5 class="mt-3">Inputs</h5>
+  <ul>
+    <li>Crop and season</li>
+    <li>Area and its units</li>
+    <li>Production and its units</li>
+  </ul>
+  <h5 class="mt-3">Output</h5>
+  <p>A predicted yield value, shown together with a plot of the entered values. Each prediction is saved and listed on the <a href="{% url 'Yield' %}">Yield DB</a> page.</p>
+  <h5 class="mt-3">Model comparison</h5>
+  <p class="mb-0">Linear Regression and Random Forest Regression were compared in the project report. See the Metrics Report for the reported error values.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "users/base.html" %}
+{% block title %}Yield Predictions{% endblock %}
+{% block content %}
+<div class="card card-soft p-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="mb-0">Yield Predictions</h3>
+    <a class="btn btn-green" href="{% url 'Deploy_9' %}">New prediction</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead><tr><th>Crop</th><th>Season</th><th>Area</th><th>Area units</th><th>Production</th><th>Production units</th><th>Yield value</th></tr></thead>
+      <tbody>
+      {% for row in data %}
+        <tr><td>{{ row.crop }}</td><td>{{ row.season }}</td><td>{{ row.area }}</td><td>{{ row.area_units }}</td><td>{{ row.production }}</td><td>{{ row.production_units }}</td><td><strong>{{ row.yield_value }}</strong></td></tr>
+      {% empty %}
+        <tr><td colspan="7" class="text-center text-muted py-4">No predictions saved yet.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

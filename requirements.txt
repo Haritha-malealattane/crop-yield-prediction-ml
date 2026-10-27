@@ -1,0 +1,9 @@
+Django>=3.2,<5.0
+social-auth-app-django
+Pillow
+joblib
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn==1.9.1   # must match the version used to train users/crop1.pkl (needs Python 3.11+)

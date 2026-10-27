@@ -1,0 +1,15 @@
+{% extends "users/base.html" %}
+{% block title %}Yield Prediction Result{% endblock %}
+{% block content %}
+<div class="card card-soft p-4 text-center">
+  <h3 class="mb-3">Crop Yield Prediction</h3>
+  <p class="lead">{{ prediction_text1 }}</p>
+  {% if plot_base64 %}
+    <img class="img-fluid mx-auto" style="max-width: 760px" alt="Prediction plot" src="data:image/png;base64,{{ plot_base64 }}">
+  {% endif %}
+  <div class="mt-4 d-flex gap-2 justify-content-center">
+    <a class="btn btn-green" href="{% url 'Deploy_9' %}">Predict again</a>
+    <a class="btn btn-outline-success" href="{% url 'Yield' %}">View saved predictions</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+{% block title %}Profile | Crop Yield Prediction{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="card card-soft p-4">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <img src="{{ user.profile.avatar.url }}" alt="avatar" width="80" height="80" class="rounded-circle border">
+        <div>
+          <h3 class="mb-0">{{ user.username }}</h3>
+          <span class="text-muted">{{ user.email }}</span>
+        </div>
+      </div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.non_field_errors }}
+        <div class="mb-3"><label>Username</label>{{ user_form.username }}{{ user_form.username.errors }}</div>
+        <div class="mb-3"><label>Email</label>{{ user_form.email }}{{ user_form.email.errors }}</div>
+        <div class="mb-3"><label>Avatar</label><br>{{ profile_form.avatar }}{{ profile_form.avatar.errors }}</div>
+        <div class="mb-3"><label>Bio</label>{{ profile_form.bio }}{{ profile_form.bio.errors }}</div>
+        <button type="submit" class="btn btn-green">Save changes</button>
+        <a class="btn btn-outline-secondary" href="{% url 'password_change' %}">Change password</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
